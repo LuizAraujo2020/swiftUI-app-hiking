@@ -9,9 +9,6 @@ Basic App to practice basics concepts and practices of SwiftUI Development
 - [x] Containers
 - [x] Alternative App icons
 - [x] SF Symbols
-- [x] ASaksdbhajksbdabsh
-- [x] ASaksdbhajksbdabsh
-- [x] ASaksdbhajksbdabsh
 
 UI & UX
 - [x] Complex Card Layout
