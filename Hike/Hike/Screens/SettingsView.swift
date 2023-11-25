@@ -68,6 +68,67 @@ struct SettingsView: View {
 
             // MARK: - SECTION: ABOUT
 
+            Section(
+                header: Text("ABOUT THE APP"),
+                footer: HStack {
+                    Spacer()
+                    Text("Copyright © All rights reserved.")
+                    Spacer()
+                }.padding(.vertical, 8)
+            ) {
+//                LabeledContent("Application", value: "Hike")
+
+                CustomListRowView(
+                    rowLabel: "Application",
+                    rowIcon: "apps.iphone",
+                    rowContent: "Hike",
+                    rowTintColor: .blue
+                )
+
+                CustomListRowView(
+                    rowLabel: "Compatibility",
+                    rowIcon: "info.circle",
+                    rowContent: "iOS, iPadOS",
+                    rowTintColor: .red
+                )
+
+                CustomListRowView(
+                    rowLabel: "Technology",
+                    rowIcon: "swift",
+                    rowContent: "Swift",
+                    rowTintColor: .orange
+                )
+
+                CustomListRowView(
+                    rowLabel: "Version",
+                    rowIcon: "gear",
+                    rowContent: "1.0",
+                    rowTintColor: .purple
+                )
+
+                CustomListRowView(
+                    rowLabel: "Developer",
+                    rowIcon: "ellipsis.curlybraces",
+                    rowContent: "Luiz Araujo",
+                    rowTintColor: .mint
+                )
+
+                CustomListRowView(
+                    rowLabel: "Designer",
+                    rowIcon: "paintpalette",
+                    rowContent: "Luiz Araujo",
+                    rowTintColor: .pink
+                )
+
+                CustomListRowView(
+                    rowLabel: "Website",
+                    rowIcon: "globe",
+                    rowContent: nil,
+                    rowTintColor: .indigo,
+                    rowLinkLabel: "Google",
+                    rowLinkDestination: "https://www.google.com"
+                )
+            }//: section
 
         }//: list
     }
