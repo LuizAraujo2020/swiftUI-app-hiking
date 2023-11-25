@@ -5,6 +5,7 @@ struct CardView: View {
 
     @State private var imageNumber = 1
     @State private var randomNumber = 1
+    @State private var isShowingSheet = false
 
     var body: some View {
         ZStack {
@@ -32,11 +33,15 @@ struct CardView: View {
                         Spacer()
 
                         Button {
-                            // Show sheet
-                            print("The button was pressed.")
+                            isShowingSheet.toggle()
                         } label: {
                             CustomButtonView()
                         }
+                        .sheet(isPresented: $isShowingSheet, content: {
+                            SettingsView()
+                                .presentationDragIndicator(.visible)
+                                .presentationDetents([.medium, .large])
+                        })
                     }
 
                     Text("Fun and enjoyable outdoor activity for family and friends.")
