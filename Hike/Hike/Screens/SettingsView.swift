@@ -8,6 +8,15 @@
 import SwiftUI
 
 struct SettingsView: View {
+    private let alternateAppIcons = [
+        "AppIcon-MagnifyingGlass",
+        "AppIcon-Map",
+        "AppIcon-Mushroom",
+        "AppIcon-Camera",
+        "AppIcon-Backpack",
+        "AppIcon-Campfire"
+    ]
+
     var body: some View {
         List {
             // MARK: - SECTION: HEADER
@@ -65,6 +74,41 @@ struct SettingsView: View {
             .listRowSeparator(.hidden)
             // MARK: - SECTION: ICONS
 
+            Section(header: Text("Alternate Icons")) {
+                ScrollView(.horizontal) {
+                    HStack(spacing: 12) {
+                        ForEach(alternateAppIcons, id: \.self) { item in
+                            Button {
+                                UIApplication.shared.setAlternateIconName(item) { error in
+                                    if let error {
+                                        print("Failed request to update the app's icon: \(String(describing: error.localizedDescription))")
+                                    } else {
+                                        print("Success! You have changed the app's icont to \(item)")
+                                    }
+                                }
+                            } label: {
+                                Image("\(item)-Preview")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 80, height: 80)
+                                    .cornerRadius(16)
+                            }
+                            .buttonStyle(.borderless)
+                        }
+                    }
+                } //: scroll
+                .scrollIndicators(.hidden)
+                .padding(.top, 12)
+
+                Text("Choose your favorite App Icon from the collection above.")
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .multilineTextAlignment(.center) 
+                    .foregroundStyle(.secondary)
+                    .font(.footnote)
+                    .padding(.bottom, 12)
+
+            }//: section
+            .listRowSeparator(.hidden)
 
             // MARK: - SECTION: ABOUT
 
